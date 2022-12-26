@@ -1,16 +1,25 @@
 import { Outlet } from "react-router-dom";
-import HeaderDash from "../components/section/HeaderDash";
-import SideBar from "../components/section/SideBar";
+import Aside from "../components/dashboard/Aside";
+import Content from "../components/dashboard/Content";
+import FooterDash from "../components/dashboard/FooterDash";
+import HeaderDash from "../components/dashboard/HeaderDash";
+
 
 
 const SecondaryLayout = () => {
     return (
         <>
-            <HeaderDash />
-            <SideBar />
-            <section>
-                <Outlet />
-            </section>
+            <div class="hold-transition sidebar-mini">
+                <div class="wrapper">
+                    <HeaderDash />
+                    <Aside />
+                    <Content />
+                    <section>
+                        <Outlet />
+                    </section>
+                    <FooterDash />
+                </div>
+            </div>
         </>
 
     );
