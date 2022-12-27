@@ -55,7 +55,7 @@ const LoginPage = () => {
                         <p>¿No tienes un cuenta? <a href="/register" className="menu__link">Registrate Aquí!</a>.</p>
                         <p>¿Olvidaste tu contraseña? <a href="/forgotpass" className="menu__link">Haz Click Aquí</a>.</p>
 
-                        <button type="submit" className="button button--primary" id="login-btn">Register</button>
+                        <button type="submit" className="button button--primary" id="login-btn">Iniciar Sesión</button>
                     </div>
                 </form>
             </div>

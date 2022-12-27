@@ -1,25 +1,34 @@
 import { Outlet } from "react-router-dom";
-import Aside from "../components/dashboard/Aside";
-import Content from "../components/dashboard/Content";
 import FooterDash from "../components/dashboard/FooterDash";
 import HeaderDash from "../components/dashboard/HeaderDash";
-
-
+import React, { useEffect, useState } from "react";
 
 const SecondaryLayout = () => {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    const checkUserToken = () => {
+        const userToken = localStorage.getItem('user-token');
+        if (!userToken || userToken === 'undefined') {
+            setIsLoggedIn(false);
+        }
+        setIsLoggedIn(true);
+    }
+
+    useEffect(() => {
+        checkUserToken();
+    }, [isLoggedIn]);
+
     return (
         <>
+        <React.Fragment>
             <div class="hold-transition sidebar-mini">
                 <div class="wrapper">
-                    <HeaderDash />
-                    <Aside />
-                    <Content />
-                    <section>
+                {isLoggedIn &&<HeaderDash />}
                         <Outlet />
-                    </section>
-                    <FooterDash />
+                {isLoggedIn &&<FooterDash />}
                 </div>
             </div>
+        </React.Fragment>
         </>
 
     );
